@@ -1,10 +1,10 @@
-// XFAIL: system-aix
 // RUN:   mlir-opt %s -pass-pipeline="builtin.module(func.func(arith-expand{include-bf16=true},convert-arith-to-llvm),convert-vector-to-llvm,convert-func-to-llvm,reconcile-unrealized-casts)" \
 // RUN: | mlir-runner                                                      \
 // RUN:     -e main -entry-point-result=void -O0                               \
 // RUN:     -shared-libs=%mlir_c_runner_utils  \
 // RUN:     -shared-libs=%mlir_runner_utils    \
 // RUN: | FileCheck %s
+// XFAIL: system-aix
 
 func.func @trunc_bf16(%a : f32) {
   %b = arith.truncf %a : f32 to bf16

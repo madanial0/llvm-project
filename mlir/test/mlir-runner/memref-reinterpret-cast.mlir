@@ -1,8 +1,8 @@
-// XFAIL: system-aix
 // RUN: mlir-opt %s -pass-pipeline="builtin.module(func.func(convert-scf-to-cf),finalize-memref-to-llvm,func.func(convert-arith-to-llvm),convert-func-to-llvm,convert-cf-to-llvm,reconcile-unrealized-casts)" \
 // RUN: | mlir-runner -e main -entry-point-result=void \
 // RUN: -shared-libs=%mlir_runner_utils,%mlir_c_runner_utils \
 // RUN: | FileCheck %s
+// XFAIL: system-aix
 
 func.func private @printMemrefF32(memref<*xf32>) attributes { llvm.emit_c_interface }
 
