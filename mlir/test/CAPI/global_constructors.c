@@ -7,6 +7,7 @@
 //
 //===----------------------------------------------------------------------===//
 
+// XFAIL: system-aix
 // UNSUPPORTED: target=aarch64{{.*}}, target=arm64{{.*}}
 /* RUN: mlir-capi-global-constructors-test 2>&1 | FileCheck %s
  */

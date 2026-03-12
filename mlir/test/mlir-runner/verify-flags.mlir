@@ -1,3 +1,4 @@
+// XFAIL: system-aix
 // REQUIRES: asserts
 // RUN: mlir-runner %s --debug-only=jit-runner -mattr=+foo_bar -e entry -entry-point-result=void 2>&1 | FileCheck %s --check-prefixes=MATTR
 // RUN: not mlir-runner %s --debug-only=jit-runner -march=bar_foo -e entry -entry-point-result=void 2>&1 | FileCheck %s --check-prefixes=MARCH

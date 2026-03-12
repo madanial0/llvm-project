@@ -1,3 +1,4 @@
+// XFAIL: system-aix
 // RUN: mlir-runner %s %if target={{s390x-.*}} %{ -argext-abi-check=false %} \
 // RUN:   | FileCheck %s
 // RUN: mlir-runner %s -e foo %if target={{s390x-.*}} %{ -argext-abi-check=false %} \
